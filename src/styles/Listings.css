@@ -1,0 +1,47 @@
+/* src/styles/Listings.css */
+.listings-container {
+  display: flex;
+  padding: 20px;
+  background-color: #f0f2f5;
+}
+
+.filter-sectors {
+  width: 250px;
+  margin-right: 20px;
+}
+
+.listing-item {
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.listing-avatar {
+  margin-right: 16px;
+}
+
+.listing-info {
+  flex: 1;
+}
+
+.listing-card {
+  display: flex;
+  align-items: center;
+}
+
+.listing-avatar-large {
+  margin-right: 20px;
+}
+
+.listing-details {
+  margin-left: 20px;
+}
+
+/* Checkbox list styling */
+.sector-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.sector-item {
+  margin-bottom: 8px;
+}

@@ -1,0 +1,34 @@
+/* src/styles/FilterSectors.css */
+.filter-card {
+    padding: 16px;
+    margin-right: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 250px; /* Kartın genişliği sabit */
+    height: 200px; /* Kartın yüksekliği sabit */
+    overflow-y: auto; /* İçerik yüksekliği aştığında kaydırma çubuğu ekler */
+    position: sticky; /* Kartın sayfada sabit kalmasını sağlar */
+    top: 16px; /* Kartın üstten 16px uzaklıkta olmasını sağlar */
+    background: #fff; /* Kart arka plan rengi */
+  }
+  
+  .ant-checkbox-group {
+    display: flex;
+    flex-direction: column; /* Checkbox'ları dikey olarak hizalar */
+    margin: 0; /* Margin ayarını sıfırlar */
+    padding: 0; /* Padding ayarını sıfırlar */
+  }
+  
+  .ant-checkbox-wrapper {
+    margin-bottom: 8px; /* Her checkbox'ın altına boşluk ekler */
+  }
+  
+  .ant-card-head {
+    background-color: #f0f2f5; /* Kart başlığı arka plan rengi */
+  }
+  
+  .ant-card-head-title {
+    font-size: 16px; /* Başlık font boyutu */
+    font-weight: 500; /* Başlık font ağırlığı */
+  }
+  

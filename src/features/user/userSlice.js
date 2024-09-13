@@ -10,7 +10,8 @@ const initialState = {
     { username: 'user2', password: 'password2', token: 'fake-jwt-token-user2' }
   ],
   admins: [
-    { username: 'admin', password: 'admin123', token: 'fake-jwt-token-admin' }
+    { username: 'admin', password: 'admin123', token: 'fake-jwt-token-admin' },
+    { username: 'admin2', password: 'admin', token: 'fake-jwt-token-admin' }
   ]
 };
 

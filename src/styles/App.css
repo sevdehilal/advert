@@ -1,34 +1,20 @@
-/* src/styles/App.css */
+/* app.css */
 .app-header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  background: #001529; /* Ant Design'ın koyu rengi */
-  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #001529;
+  padding: 0 20px;
 }
 
 .app-header .logo {
   color: white;
   font-size: 24px;
-  line-height: 64px;
+  font-weight: bold;
 }
 
 .main-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 64px); /* Header yüksekliği çıkarıldı */
-  background-color: #f0f2f5; /* Ant Design'ın arka plan rengi */
-  padding-top: 64px; /* Header yüksekliği kadar boşluk bırak */
-}
-
-.login-card {
-  width: 400px; /* Kartın genişliği */
-  margin: 0 auto; /* Ortalamak için */
-  padding: 20px; /* İç boşluk */
+  padding: 24px;
+  background-color: #fff;
+  min-height: 280px;
 }

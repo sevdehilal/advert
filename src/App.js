@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import LoginUser from './components/LoginUser';
 import LoginAdmin from './components/LoginAdmin';
-import Listings from './pages/Listings'; // Güncellenmiş import yolu
-import CreateListing from './pages/CreateListing'; // Güncellenmiş import yolu
+import Listings from './pages/Listings';
+import CreateListing from './pages/CreateListing';
 import './styles/App.css'; // CSS dosyasını import edin
 
 const { Header, Content } = Layout;
@@ -15,7 +15,7 @@ const App = () => {
     <Router>
       <Layout>
         <Header className="app-header">
-          <div className="logo">Uygulama Adı</div>
+          <div className="logo">Jobsphere</div> {/* Başlık metnini güncelledik */}
           <Menu theme="dark" mode="horizontal">
             <Menu.Item key="login-user">
               <Link to="/login-user">Kullanıcı Girişi</Link>

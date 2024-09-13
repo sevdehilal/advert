@@ -1,26 +1,17 @@
-// src/components/Header.js
 import React from 'react';
-import { Layout, Menu } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { Menu } from 'antd';
+import '../styles/Header.css';
 
-const { Header } = Layout;
-
-const AppHeader = () => {
-  const navigate = useNavigate();
-
+const Header = ({ onSelect }) => {
   return (
-    <Header className="app-header">
-      <div className="logo"></div>
-      <Menu theme="dark" mode="horizontal" className="header-menu">
-        <Menu.Item key="login-user" onClick={() => navigate('/login-user')}>
-          Kullanıcı Girişi
-        </Menu.Item>
-        <Menu.Item key="login-admin" onClick={() => navigate('/login-admin')}>
-          Admin Girişi
-        </Menu.Item>
+    <div className="header-container">
+      <h2 className="app-title">Job Listings</h2>
+      <Menu mode="horizontal" onClick={onSelect} className="header-menu">
+        <Menu.Item key="user">User Login</Menu.Item>
+        <Menu.Item key="admin">Admin Login</Menu.Item>
       </Menu>
-    </Header>
+    </div>
   );
 };
 
-export default AppHeader;
+export default Header;
