@@ -6,7 +6,6 @@ import FilterJobTypes from '../components/FilterJobTypes';
 import '../styles/Listings.css';
 import '../features/listings/listingsSlice';
 
-
 const Listings = () => {
   const listings = useSelector((state) => state.listings.listings);
   const selectedSectors = useSelector((state) => state.listings.selectedSectors);
@@ -28,28 +27,53 @@ const Listings = () => {
     setSelectedListing(null);
   };
 
+  // Get 4 random listings for 'En Çok Tıklanan İlanlar'
+  const randomListings = [...listings]
+    .sort(() => 0.5 - Math.random()) // Shuffle the listings
+    .slice(0, 4); // Get 4 random listings
+
   return (
     <div className="listings-container">
       <div className="filters">
         <FilterSectors />
         <FilterJobTypes />
       </div>
-      <List
-        itemLayout="horizontal"
-        dataSource={filteredListings}
-        renderItem={(listing) => (
-          <List.Item onClick={() => handleItemClick(listing)} className="listing-item">
-            <Avatar src={listing.logo} size={64} className="listing-avatar" />
-            <div className="listing-info">
-              <h3>{listing.title}</h3>
-              <p>{listing.company}</p>
-              <p><strong>Job Type:</strong> {listing.jobType}</p>
-            </div>
-          </List.Item>
-        )}
-      />
 
-      {/* Modal for detailed view */}
+      <div className="main-listings">
+        <h1>İlanlar</h1>
+        <List
+          itemLayout="horizontal"
+          dataSource={filteredListings}
+          renderItem={(listing) => (
+            <List.Item onClick={() => handleItemClick(listing)} className="listing-item">
+              <Avatar src={listing.logo} size={64} className="listing-avatar" />
+              <div className="listing-info">
+                <h3>{listing.title}</h3>
+                <p>{listing.company}</p>
+                <p><strong>Job Type:</strong> {listing.jobType}</p>
+              </div>
+            </List.Item>
+          )}
+        />
+      </div>
+
+      <div className="sidebar">
+        <h1>En Çok Tıklanan İlanlar</h1>
+        <List
+          itemLayout="horizontal"
+          dataSource={randomListings}
+          renderItem={(listing) => (
+            <List.Item onClick={() => handleItemClick(listing)} className="popular-listing-item">
+              <Avatar src={listing.logo} size={64} className="listing-avatar" />
+              <div className="listing-info">
+                <h4>{listing.title}</h4>
+                <p>{listing.company}</p>
+              </div>
+            </List.Item>
+          )}
+        />
+      </div>
+
       <Modal
         visible={!!selectedListing}
         onCancel={handleCloseModal}

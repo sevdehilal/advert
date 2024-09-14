@@ -1,4 +1,3 @@
-// src/features/user/userSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -10,8 +9,8 @@ const initialState = {
     { username: 'user2', password: 'password2', token: 'fake-jwt-token-user2' }
   ],
   admins: [
-    { username: 'admin', password: 'admin123', token: 'fake-jwt-token-admin' },
-    { username: 'admin2', password: 'admin', token: 'fake-jwt-token-admin' }
+    { username: 'admin1', password: 'admin123', token: 'fake-jwt-token-admin1' },
+    { username: 'admin2', password: 'admin123', token: 'fake-jwt-token-admin2' }
   ]
 };
 
@@ -29,15 +28,12 @@ const userSlice = createSlice({
       state.token = null;
       state.isAdmin = false;
     },
-    addUser: (state, action) => {
-      state.users.push(action.payload);
-    },
-    addAdmin: (state, action) => {
-      state.admins.push(action.payload);
-    },
   },
 });
 
-export const { loginSuccess, logout, addUser, addAdmin } = userSlice.actions;
+export const { loginSuccess, logout } = userSlice.actions;
 
 export default userSlice.reducer;
+
+export const selectIsLoggedIn = state => !!state.user.userInfo;
+export const selectIsAdmin = state => state.user.isAdmin;

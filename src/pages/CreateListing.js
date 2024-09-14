@@ -1,7 +1,8 @@
+// src/pages/CreateListing.js
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addListing, deleteListing } from '../features/listings/listingsSlice';
-import { Form, Input, Button, List, Avatar, Modal, Typography } from 'antd';
+import { Form, Input, Button, List, Avatar, Modal, Typography, Alert } from 'antd';
 import { v4 as uuidv4 } from 'uuid';
 
 const { Title } = Typography;
@@ -10,16 +11,16 @@ const CreateListing = () => {
   const [form] = Form.useForm();
   const [selectedListing, setSelectedListing] = useState(null);
   const dispatch = useDispatch();
-  const listings = useSelector((state) => state.listings.listings);
-  console.log("Görüntülenen ilanlar:", listings);
-  
-
-  
+  const adminInfo = useSelector(state => state.user.userInfo); // Şu anki admin bilgisi
+  const listings = useSelector((state) => state.listings.listings.filter(
+    (listing) => listing.admin === adminInfo.username // Yalnızca giriş yapan adminin ilanları
+  ));
 
   const handleSubmit = (values) => {
     const newListing = {
-      id: uuidv4(), // UUID ile benzersiz ID oluştur
+      id: uuidv4(),
       ...values,
+      admin: adminInfo.username, // İlanı oluşturan admin bilgisi ekleniyor
     };
 
     dispatch(addListing(newListing));
@@ -41,6 +42,12 @@ const CreateListing = () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', padding: '20px' }}>
       <div style={{ width: '45%' }}>
+        <Alert
+          message={`Hoşgeldiniz, ${adminInfo.username}!`}
+          type="success"
+          showIcon
+          style={{ marginBottom: '20px' }}
+        />
         <Title level={2}>İlan Oluşturma</Title>
         <Form form={form} onFinish={handleSubmit} layout="vertical">
           <Form.Item label="Başlık" name="title" rules={[{ required: true, message: 'Başlık gerekli!' }]}>

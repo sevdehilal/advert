@@ -3,7 +3,7 @@ import { Form, Input, Button, Card } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginSuccess } from '../features/user/userSlice';
 import { useNavigate } from 'react-router-dom';
-import '../styles/login.css';  // CSS'i import edin
+import '../styles/login.css';
 
 const LoginAdmin = () => {
   const dispatch = useDispatch();
